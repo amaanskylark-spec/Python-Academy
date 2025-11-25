@@ -61,3 +61,19 @@ Verification: yes
 Output:
 Welcome, Admin! Full access granted.
 """
+
+username = input("Enter username: ")
+password = input("Enter password: ")
+verification = input("Is your account verified? (yes/no): ")
+if not username or not password:
+	print("Error: Username and password cannot be empty!")
+elif len(password) < 8:
+	print("Error: Password must be at least 8 characters long!")
+elif username == "admin" and password == "admin123" and verification.lower() == "yes":
+	print("Welcome, Admin! Full access granted.")
+elif username == "admin" and password == "admin123" and verification.lower() != "yes":
+	print("Login successful, but please verify your account.")
+elif username == "user" and password == "password123" and verification.lower() == "yes":
+	print("Welcome, User! Access granted.")
+else:
+	print("Invalid credentials. Access denied.")
